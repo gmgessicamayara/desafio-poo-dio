@@ -1,7 +1,5 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
+import enums.Dificuldade;
 
 import java.time.LocalDate;
 
@@ -58,6 +56,26 @@ public class Main {
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
+        ProjetoPratico projeto1 = new ProjetoPratico(
+                "API com Spring Boot",
+                "Desenvolver uma API RESTful com Spring Boot e boas práticas.",
+                Dificuldade.DIFICIL
+        );
+
+        Bootcamp projetoPratico = new Bootcamp();
+        projetoPratico.setNome("Bootcamp Fullstack Java");
+        projetoPratico.setDescricao("Do backend ao frontend com projetos práticos!");
+        projetoPratico.getConteudos().add(projeto1);
+
+        Dev devGessica = new Dev();
+        devGessica.setNome("Gessica");
+        devGessica.inscreverBootcamp(projetoPratico);
+
+        System.out.println("Conteúdos Inscritos: " + devGessica.getConteudosInscritos());
+        devGessica.progredir();
+        System.out.println("Conteúdos Concluídos: " + devGessica.getConteudosConcluidos());
+        System.out.println("XP: " + devGessica.calcularTotalXp());
     }
+
 
 }
